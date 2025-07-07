@@ -1,0 +1,44 @@
+{
+  "name": "rtt",
+  "version": "1.0.0",
+  "description": "Runtime Typescript Types",
+  "main": "index.js",
+  "scripts": {
+    "build": "barrelize && vite build",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nizami/rtt.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Runtime Types"
+  ],
+  "author": "Nizami",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nizami/rtt/issues"
+  },
+  "homepage": "https://github.com/nizami/rtt#readme",
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "barrelize": "^1.6.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  }
+}
