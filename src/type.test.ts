@@ -1,4 +1,4 @@
-import {$Model, $NewType, $type, is, Model} from '#lib';
+import {$Model, $NewType, is, Model} from '#lib';
 import {expect, test} from 'vitest';
 
 test('type', () => {
@@ -6,7 +6,7 @@ test('type', () => {
   const $B = () => $NewType('SomeTestPackage', 'B', $A());
 
   const model: Model = {
-    [$type]: $B(),
+    $type: $B(),
   };
 
   expect($A().is($A())).toBe(true);
