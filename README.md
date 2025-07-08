@@ -21,7 +21,7 @@ npm install rtt
 ## Usage
 
 ```typescript
-import {$NewType, $type, is, Model} from 'rtt';
+import {$NewType, is, Model} from 'rtt';
 
 // Define types
 const $A = () => $NewType('MyPackage', 'A');
@@ -29,7 +29,7 @@ const $B = () => $NewType('MyPackage', 'B', $A());
 
 // Create a model instance
 const model: Model = {
-  [$type]: $B(),
+  $type: $B(),
 };
 
 // Runtime type checks
