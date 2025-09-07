@@ -1,18 +1,18 @@
-import {expect, test, describe} from 'vitest';
-import {is} from './is';
+import {describe, expect, test} from 'vitest';
 import {$Type} from '../type/type';
+import {is} from './is';
 
 describe('is', () => {
   test('should return true when model matches type exactly', () => {
     const type: $Type = {
       typeName: 'Person',
-      packageName: 'test'
+      packageName: 'test',
     };
     const model = {
       $type: {
         typeName: 'Person',
-        packageName: 'test'
-      }
+        packageName: 'test',
+      },
     };
     expect(is(model, type)).toBe(true);
   });
@@ -20,13 +20,13 @@ describe('is', () => {
   test('should return false when model has different type', () => {
     const type: $Type = {
       typeName: 'Person',
-      packageName: 'test'
+      packageName: 'test',
     };
     const model = {
       $type: {
         typeName: 'Car',
-        packageName: 'test'
-      }
+        packageName: 'test',
+      },
     };
     expect(is(model, type)).toBe(false);
   });
@@ -34,7 +34,7 @@ describe('is', () => {
   test('should return true when model type inherits from parent type', () => {
     const parentType: $Type = {
       typeName: 'Animal',
-      packageName: 'test'
+      packageName: 'test',
     };
     const model = {
       $type: {
@@ -42,9 +42,9 @@ describe('is', () => {
         packageName: 'test',
         parent: {
           typeName: 'Animal',
-          packageName: 'test'
-        }
-      }
+          packageName: 'test',
+        },
+      },
     };
     expect(is(model, parentType)).toBe(true);
   });
@@ -53,20 +53,24 @@ describe('is', () => {
     const type: $Type = {
       typeName: 'List',
       packageName: 'test',
-      generics: [{
-        typeName: 'String',
-        packageName: 'test'
-      }]
+      generics: [
+        {
+          typeName: 'String',
+          packageName: 'test',
+        },
+      ],
     };
     const model = {
       $type: {
         typeName: 'List',
         packageName: 'test',
-        generics: [{
-          typeName: 'String',
-          packageName: 'test'
-        }]
-      }
+        generics: [
+          {
+            typeName: 'String',
+            packageName: 'test',
+          },
+        ],
+      },
     };
     expect(is(model, type)).toBe(true);
   });
@@ -75,20 +79,24 @@ describe('is', () => {
     const type: $Type = {
       typeName: 'List',
       packageName: 'test',
-      generics: [{
-        typeName: 'String',
-        packageName: 'test'
-      }]
+      generics: [
+        {
+          typeName: 'String',
+          packageName: 'test',
+        },
+      ],
     };
     const model = {
       $type: {
         typeName: 'List',
         packageName: 'test',
-        generics: [{
-          typeName: 'Number',
-          packageName: 'test'
-        }]
-      }
+        generics: [
+          {
+            typeName: 'Number',
+            packageName: 'test',
+          },
+        ],
+      },
     };
     expect(is(model, type)).toBe(false);
   });
@@ -96,10 +104,10 @@ describe('is', () => {
   test('should return false when model has no $type property', () => {
     const type: $Type = {
       typeName: 'Person',
-      packageName: 'test'
+      packageName: 'test',
     };
     const model = {
-      name: 'John'
+      name: 'John',
     };
     expect(is(model, type)).toBe(false);
   });
