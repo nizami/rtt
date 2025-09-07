@@ -1,4 +1,4 @@
-import {$Model, $NewType, is, Model} from '#lib';
+import {$Model, $NewType, is, isType, Model} from '#lib';
 import {expect, test} from 'vitest';
 
 test('type', () => {
@@ -9,9 +9,9 @@ test('type', () => {
     $type: $B(),
   };
 
-  expect($A().is($A())).toBe(true);
-  expect($A().is($B())).toBe(false);
-  expect($B().is($A())).toBe(true);
+  expect(isType($A(), $A())).toBe(true);
+  expect(isType($A(), $B())).toBe(false);
+  expect(isType($B(), $A())).toBe(true);
   expect(is(model, $B())).toBe(true);
   expect(is(model, $A())).toBe(true);
   expect(is(model, $Model())).toBe(true);
